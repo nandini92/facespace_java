@@ -56,8 +56,9 @@ public class Utils {
     }
 
     public User findUserName(String name){
+        System.out.println(name);
         for(User user : this.users){
-            if(user.getName() == name){
+            if(user.getName().equals(name)){
                 return user;
             }
         }

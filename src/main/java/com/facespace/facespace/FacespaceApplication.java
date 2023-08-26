@@ -58,10 +58,14 @@ public class FacespaceApplication {
 		return new UserResponse(200, searchedUser, "No message included");
 	}
 
+	record UserName(
+		String user
+	){}
+
 	@PostMapping("/api/signin")
-	public UserResponse handleSignIn(@RequestBody String user){
+	public UserResponse handleSignIn(@RequestBody UserName user){
 		System.out.println("Serving request: handleSignIn() for " + user);
-		User signedIn = util.findUserName(user);
+		User signedIn = util.findUserName(user.user);
 
 		System.out.println("Sending response: " + signedIn);
 
