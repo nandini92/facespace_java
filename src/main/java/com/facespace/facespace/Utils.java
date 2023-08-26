@@ -65,4 +65,25 @@ public class Utils {
         // How to properly handle case where User name does not exist?
         return new User();
     }
+
+    public boolean deleteUser(int id){
+        for(User user : this.users){
+            if(user.getId() == id){
+                users.remove(user);
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    public boolean findFriend(ArrayList<Integer> friends, int newFriend){
+        for(int friend : friends){
+            if(friend == newFriend){
+                return true;
+            }
+        }
+
+        return false;
+    }
 }
